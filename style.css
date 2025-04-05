@@ -2,45 +2,67 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: Gotham Rounded, sans-serif;
+  font-family: 'Orbitron', sans-serif;
   font-weight: normal;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #cbce91ff, #ea738dff);
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator-container {
+  text-align: center;
+  color: #fff;
+}
+
+.calculator-title {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .calculator-grid {
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  gap: 5px;
 }
 
-.calculator-grid > button {
+.calculator-grid > button,
+.extras > button {
   cursor: pointer;
   font-size: 2rem;
-  border: 1px, solid #ffffff;
-  outline: none;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+  box-shadow: 0 4px #999;
 }
 
-.calculator-grid > button:hover {
-  background-color: #a9a9a9;
+.calculator-grid > button:hover,
+.extras > button:hover {
+  background-color: #dcdcdc;
 }
 
 .span-two {
   grid-column: span 2;
-  color: #adf802;
-  background-color: rgba(139, 0, 139, 0.8);
+  background-color: #ff6f61;
+  color: white;
 }
 
 .output {
   grid-column: 1 / -1;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: #222;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -48,6 +70,7 @@ body {
   padding: 10px;
   word-wrap: break-word;
   word-break: break-all;
+  border-radius: 10px;
 }
 
 .output .previous-operand {
@@ -58,4 +81,11 @@ body {
 .output .current-operand {
   color: white;
   font-size: 2.5rem;
+}
+
+.extras {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
